@@ -1,0 +1,1636 @@
+
+1.
+ 
+student_ithub10@yukari:hostname
+yukari
+
+student_ithub10@yukari:hostname -a 
+localhost.localdomain yukari
+
+2. lcc g++ gcc 7.3.0 compatible
+   /usr/bin/g++
+   /usr/bin/gcc
+   /opt/mcsk/bin/lcc
+   /opt/mcsk/bin/l++
+
+3.ldd GNU libc 2.29
+
+4. 
+student_ithub10@yukari:~$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:          125Gi       1,3Gi       103Gi       4,0Mi        20Gi       122Gi
+Swap:            0B          0B          0B
+
+
+5.
+student_ithub10@yukari:~$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+loop0    7:0    0  4,2G  1 loop /install/disk1
+loop1    7:1    0  2,7G  1 loop /install/disk2
+loop2    7:2    0  1,6G  1 loop /install/disk3
+sda      8:0    0  1,8T  0 disk
+├─sda1   8:1    0    1G  0 part /boot
+└─sda2   8:2    0  1,8T  0 part /
+student_ithub10@yukari:~$ df -h
+Файловая система Размер Использовано  Дост Использовано% Cмонтировано в
+devtmpfs            63G            0   63G            0% /dev
+/dev/sda2          1,8T         597G  1,2T           35% /
+tmpfs               63G         1,3M   63G            1% /run
+/dev/sda1         1008M          27M  931M            3% /boot
+/dev/loop0         4,3G         4,3G     0          100% /install/disk1
+/dev/loop1         2,7G         2,7G     0          100% /install/disk2
+/dev/loop2         1,6G         1,6G     0          100% /install/disk3
+none                63G         664K   63G            1% /dev/shm
+
+
+6.
+student_ithub10@yukari:~$ df -h -T
+Файловая система Тип      Размер Использовано  Дост Использовано% Cмонтировано в
+devtmpfs         devtmpfs    63G            0   63G            0% /dev
+/dev/sda2        ext4       1,8T         597G  1,2T           35% /
+tmpfs            tmpfs       63G         1,3M   63G            1% /run
+/dev/sda1        ext2      1008M          27M  931M            3% /boot
+/dev/loop0       iso9660    4,3G         4,3G     0          100% /install/disk1
+/dev/loop1       iso9660    2,7G         2,7G     0          100% /install/disk2
+/dev/loop2       iso9660    1,6G         1,6G     0          100% /install/disk3
+none             tmpfs       63G         664K   63G            1% /dev/shm
+
+
+7.
+student_ithub10@yukari:~/am_3ib2$ ./helloworld
+Hello world!
+
+готово
+
+8.
+student_ithub10@yukari:~/am_3ib2$ python ohayo.py
+Ohayo
+
+9.
+student_ithub10@yukari:~/am_3ib2$ ls -a
+.  ..  .git  helloworld  helloworld.cpp  .hg  ohayo.py
+
+готово
+
+10.
+готово
+
+11
+
+student_ithub10@yukari:~$ cat /etc/crontab
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+
+student_ithub10@yukari:~$ ls -la /etc/cron.hourly/
+итого 32
+drwxr-xr-x   2 root root  4096 ноя 20  2020 .
+drwxr-xr-x 169 root root 20480 дек  6 00:22 ..
+-rwxr-xr-x   1 root root    74 окт  8  2020 0anacron
+-rw-r--r--   1 root root   102 ноя 16  2020 .placeholder
+student_ithub10@yukari:~$ ls -la /etc/cron.daily/
+итого 40
+drwxr-xr-x   2 root root  4096 мая  6  2021 .
+drwxr-xr-x 169 root root 20480 дек  6 00:22 ..
+-rw-r--r--   1 root root   532 окт  8  2020 debsums
+lrwxrwxrwx   1 root root    26 окт  9  2020 logrotate -> ../examples/logrotate.cron
+-rwxr-xr-x   1 root root   377 фев 25  2021 logrotate.dpkg-new
+-rw-r--r--   1 root root   102 ноя 16  2020 .placeholder
+-rw-r--r--   1 root root   211 окт  7  2020 sysstat
+student_ithub10@yukari:~$ ls -la /etc/cron.weekly/
+итого 32
+drwxr-xr-x   2 root root  4096 ноя 20  2020 .
+drwxr-xr-x 169 root root 20480 дек  6 00:22 ..
+-rw-r--r--   1 root root   533 окт  8  2020 debsums
+-rw-r--r--   1 root root   102 ноя 16  2020 .placeholder
+student_ithub10@yukari:~$ ls -la /etc/cron.monthly/
+итого 32
+drwxr-xr-x   2 root root  4096 ноя 20  2020 .
+drwxr-xr-x 169 root root 20480 дек  6 00:22 ..
+-rw-r--r--   1 root root   534 окт  8  2020 debsums
+-rw-r--r--   1 root root   102 ноя 16  2020 .placeholder
+
+
+
+12.
+
+student_ithub10@yukari:~$ less /etc/group
+
+root::0:root
+bin::1:root,bin,daemon
+daemon::2:root,bin,daemon
+sys::3:root,bin,adm
+adm::4:root,adm,daemon
+tty::5:
+disk::6:root
+lp::7:daemon,lp
+mem::8:
+kmem::9:
+wheel::10:root,molchan_i,cmake_testing
+mail::12:mail
+news::13:news
+uucp::14:uucp
+man::15:
+cron:x:16:
+crontab:x:17:
+games::20:
+gopher::30:
+dip::40:
+ftp::50:
+lock::54:
+nobody::99:
+users::100:
+utmp:x:22:
+rpc:x:32:
+rpcuser:x:29:
+nfsnobody:x:65534:
+vsxg0:x:556:
+vsxg1:x:557:
+vsxg2:x:558:
+supp1:x:559:vsx0
+supp2:x:560:vsx0
+supp3:x:561:vsx0
+supp4:x:562:vsx0
+supp5:x:563:vsx0
+supp6:x:564:vsx0
+supp7:x:565:vsx0
+....
+
+
+
+student_ithub10@yukari:~$ less /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+bin:x:2:2:bin:/bin:/sbin/nologin
+daemon:x:1:1:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+news:x:9:13:news:/var/spool/news:
+uucp:x:10:14:uucp:/var/spool/uucp:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+gopher:x:13:30:gopher:/var/gopher:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:99:99:Nobody:/:/sbin/nologin
+rpc:x:32:32:Portmapper RPC user:/:/bin/false
+rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
+sshd:x:30:30:sshd login:/:/bin/sh
+smmsp:x:102:102::/:/bin/bash
+tester:x:789:10:Test User:/home/tester:/bin/bash
+bouncer:x:790:100:Test User for sendmail::/bin/bash
+man:x:101:15:man user:/:/bin/false
+_chrony:x:999:999:Chrony daemon:/var/lib/chrony:/bin/false
+_apt:x:998:998::/nonexistent:/sbin/nologin
+nslcd:x:997:997::/var/run/nslcd/:/bin/bash
+mysql:x:996:996::/var/lib/mysql/home_mysql:/bin/bash
+bind:x:995:995::/var/cache/bind:/bin/bash
+messagebus:x:81:81:System message bus:/:/bin/false
+quagga:x:92:92:Quagga routing suite:/var/run/quagga:/sbin/nologin
+postgres:x:994:994::/var/lib/postgresql/home_postgres:/bin/bash
+ups:x:900:900::/var/state/ups:/sbin/nologin
+avahi:x:993:993:Avahi daemon:/:/bin/false
+/etc/passwd
+
+
+
+13. 
+student_ithub10@yukari:~$ ps -eF
+
+UID        PID  PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+root         1     0  0  1385  2800   1 дек05 ?     00:00:21 init [5]
+root         2     0  0     0     0   0 дек05 ?     00:00:00 [kthreadd]
+root         3     2  0     0     0   0 дек05 ?     00:00:00 [rcu_gp]
+root         4     2  0     0     0   0 дек05 ?     00:00:00 [rcu_par_gp]
+root         6     2  0     0     0   0 дек05 ?     00:00:00 [kworker/0:0H-kblockd]
+root         8     2  0     0     0   0 дек05 ?     00:00:00 [mm_percpu_wq]
+root         9     2  0     0     0   0 дек05 ?     00:00:00 [ksoftirqd/0]
+root        10     2  0     0     0  12 дек05 ?     00:00:05 [rcu_sched]
+root        11     2  0     0     0   0 дек05 ?     00:00:00 [migration/0]
+root        12     2  0     0     0   0 дек05 ?     00:00:00 [cpuhp/0]
+root        13     2  0     0     0   1 дек05 ?     00:00:00 [cpuhp/1]
+root        14     2  0     0     0   1 дек05 ?     00:00:00 [migration/1]
+root        15     2  0     0     0   1 дек05 ?     00:00:00 [ksoftirqd/1]
+root        17     2  0     0     0   1 дек05 ?     00:00:00 [kworker/1:0H-kblockd]
+root        18     2  0     0     0   2 дек05 ?     00:00:00 [cpuhp/2]
+root        19     2  0     0     0   2 дек05 ?     00:00:00 [migration/2]
+root        20     2  0     0     0   2 дек05 ?     00:00:00 [ksoftirqd/2]
+root        22     2  0     0     0   2 дек05 ?     00:00:00 [kworker/2:0H-kblockd]
+root        23     2  0     0     0   3 дек05 ?     00:00:00 [cpuhp/3]
+root        24     2  0     0     0   3 дек05 ?     00:00:00 [migration/3]
+root        25     2  0     0     0   3 дек05 ?     00:00:00 [ksoftirqd/3]
+root        26     2  0     0     0   3 дек05 ?     00:00:00 [kworker/3:0-mm_percpu_wq]
+root        27     2  0     0     0   3 дек05 ?     00:00:00 [kworker/3:0H-kblockd]
+root        28     2  0     0     0   4 дек05 ?     00:00:00 [cpuhp/4]
+root        29     2  0     0     0   4 дек05 ?     00:00:00 [migration/4]
+root        30     2  0     0     0   4 дек05 ?     00:00:00 [ksoftirqd/4]
+root        32     2  0     0     0   4 дек05 ?     00:00:00 [kworker/4:0H-kblockd]
+root        33     2  0     0     0   5 дек05 ?     00:00:00 [cpuhp/5]
+root        34     2  0     0     0   5 дек05 ?     00:00:00 [migration/5]
+root        35     2  0     0     0   5 дек05 ?     00:00:00 [ksoftirqd/5]
+root        37     2  0     0     0   5 дек05 ?     00:00:00 [kworker/5:0H-kblockd]
+root        38     2  0     0     0   6 дек05 ?     00:00:00 [cpuhp/6]
+root        39     2  0     0     0   6 дек05 ?     00:00:00 [migration/6]
+root        40     2  0     0     0   6 дек05 ?     00:00:00 [ksoftirqd/6]
+root        41     2  0     0     0   6 дек05 ?     00:00:00 [kworker/6:0-mm_percpu_wq]
+root        42     2  0     0     0   6 дек05 ?     00:00:00 [kworker/6:0H-kblockd]
+root        43     2  0     0     0   7 дек05 ?     00:00:00 [cpuhp/7]
+root        44     2  0     0     0   7 дек05 ?     00:00:00 [migration/7]
+root        45     2  0     0     0   7 дек05 ?     00:00:00 [ksoftirqd/7]
+root        46     2  0     0     0   7 дек05 ?     00:00:00 [kworker/7:0-mm_percpu_wq]
+root        47     2  0     0     0   7 дек05 ?     00:00:00 [kworker/7:0H]
+root        48     2  0     0     0   8 дек05 ?     00:00:00 [cpuhp/8]
+root        49     2  0     0     0   8 дек05 ?     00:00:00 [migration/8]
+root        50     2  0     0     0   8 дек05 ?     00:00:00 [ksoftirqd/8]
+root        52     2  0     0     0   8 дек05 ?     00:00:00 [kworker/8:0H-kblockd]
+root        53     2  0     0     0   9 дек05 ?     00:00:00 [cpuhp/9]
+root        54     2  0     0     0   9 дек05 ?     00:00:00 [migration/9]
+root        55     2  0     0     0   9 дек05 ?     00:00:00 [ksoftirqd/9]
+root        56     2  0     0     0   9 дек05 ?     00:00:00 [kworker/9:0-mm_percpu_wq]
+root        57     2  0     0     0   9 дек05 ?     00:00:00 [kworker/9:0H-kblockd]
+root        58     2  0     0     0  10 дек05 ?     00:00:00 [cpuhp/10]
+root        59     2  0     0     0  10 дек05 ?     00:00:00 [migration/10]
+root        60     2  0     0     0  10 дек05 ?     00:00:00 [ksoftirqd/10]
+root        61     2  0     0     0  10 дек05 ?     00:00:00 [kworker/10:0-mm_percpu_wq]
+root        62     2  0     0     0  10 дек05 ?     00:00:00 [kworker/10:0H-kblockd]
+root        63     2  0     0     0  11 дек05 ?     00:00:00 [cpuhp/11]
+root        64     2  0     0     0  11 дек05 ?     00:00:00 [migration/11]
+root        65     2  0     0     0  11 дек05 ?     00:00:00 [ksoftirqd/11]
+root        66     2  0     0     0  11 дек05 ?     00:00:00 [kworker/11:0-mm_percpu_wq]
+root        67     2  0     0     0  11 дек05 ?     00:00:00 [kworker/11:0H-kblockd]
+root        68     2  0     0     0  12 дек05 ?     00:00:00 [cpuhp/12]
+root        69     2  0     0     0  12 дек05 ?     00:00:00 [migration/12]
+root        70     2  0     0     0  12 дек05 ?     00:00:00 [ksoftirqd/12]
+root        71     2  0     0     0  12 дек05 ?     00:00:00 [kworker/12:0-mm_percpu_wq]
+root        72     2  0     0     0  12 дек05 ?     00:00:00 [kworker/12:0H-kblockd]
+root        73     2  0     0     0  13 дек05 ?     00:00:00 [cpuhp/13]
+root        74     2  0     0     0  13 дек05 ?     00:00:00 [migration/13]
+root        75     2  0     0     0  13 дек05 ?     00:00:00 [ksoftirqd/13]
+root        76     2  0     0     0  13 дек05 ?     00:00:00 [kworker/13:0-mm_percpu_wq]
+root        77     2  0     0     0  13 дек05 ?     00:00:00 [kworker/13:0H-kblockd]
+root        78     2  0     0     0  14 дек05 ?     00:00:00 [cpuhp/14]
+root        79     2  0     0     0  14 дек05 ?     00:00:00 [migration/14]
+root        80     2  0     0     0  14 дек05 ?     00:00:00 [ksoftirqd/14]
+root        81     2  0     0     0  14 дек05 ?     00:00:00 [kworker/14:0-mm_percpu_wq]
+root        82     2  0     0     0  14 дек05 ?     00:00:00 [kworker/14:0H-kblockd]
+root        83     2  0     0     0  15 дек05 ?     00:00:00 [cpuhp/15]
+root        84     2  0     0     0  15 дек05 ?     00:00:00 [migration/15]
+root        85     2  0     0     0  15 дек05 ?     00:00:00 [ksoftirqd/15]
+root        87     2  0     0     0  15 дек05 ?     00:00:00 [kworker/15:0H-kblockd]
+root        88     2  0     0     0  16 дек05 ?     00:00:00 [cpuhp/16]
+root        89     2  0     0     0  16 дек05 ?     00:00:00 [migration/16]
+root        90     2  0     0     0  16 дек05 ?     00:00:00 [ksoftirqd/16]
+root        91     2  0     0     0  16 дек05 ?     00:00:00 [kworker/16:0-mm_percpu_wq]
+root        92     2  0     0     0  16 дек05 ?     00:00:00 [kworker/16:0H-kblockd]
+root        93     2  0     0     0  17 дек05 ?     00:00:00 [cpuhp/17]
+root        94     2  0     0     0  17 дек05 ?     00:00:00 [migration/17]
+root        95     2  0     0     0  17 дек05 ?     00:00:00 [ksoftirqd/17]
+root        96     2  0     0     0  17 дек05 ?     00:00:00 [kworker/17:0-mm_percpu_wq]
+root        97     2  0     0     0  17 дек05 ?     00:00:00 [kworker/17:0H-kblockd]
+root        98     2  0     0     0  18 дек05 ?     00:00:00 [cpuhp/18]
+root        99     2  0     0     0  18 дек05 ?     00:00:00 [migration/18]
+root       100     2  0     0     0  18 дек05 ?     00:00:00 [ksoftirqd/18]
+root       101     2  0     0     0  18 дек05 ?     00:00:00 [kworker/18:0-mm_percpu_wq]
+root       102     2  0     0     0  18 дек05 ?     00:00:00 [kworker/18:0H-kblockd]
+root       103     2  0     0     0  19 дек05 ?     00:00:00 [cpuhp/19]
+root       104     2  0     0     0  19 дек05 ?     00:00:00 [migration/19]
+root       105     2  0     0     0  19 дек05 ?     00:00:00 [ksoftirqd/19]
+root       106     2  0     0     0  19 дек05 ?     00:00:00 [kworker/19:0-events]
+root       107     2  0     0     0  19 дек05 ?     00:00:00 [kworker/19:0H-kblockd]
+root       108     2  0     0     0  20 дек05 ?     00:00:00 [cpuhp/20]
+root       109     2  0     0     0  20 дек05 ?     00:00:00 [migration/20]
+root       110     2  0     0     0  20 дек05 ?     00:00:00 [ksoftirqd/20]
+root       111     2  0     0     0  20 дек05 ?     00:00:00 [kworker/20:0-mm_percpu_wq]
+root       112     2  0     0     0  20 дек05 ?     00:00:00 [kworker/20:0H-kblockd]
+root       113     2  0     0     0  21 дек05 ?     00:00:00 [cpuhp/21]
+root       114     2  0     0     0  21 дек05 ?     00:00:00 [migration/21]
+root       115     2  0     0     0  21 дек05 ?     00:00:00 [ksoftirqd/21]
+root       116     2  0     0     0  21 дек05 ?     00:00:00 [kworker/21:0-mm_percpu_wq]
+root       117     2  0     0     0  21 дек05 ?     00:00:00 [kworker/21:0H-kblockd]
+root       118     2  0     0     0  22 дек05 ?     00:00:00 [cpuhp/22]
+root       119     2  0     0     0  22 дек05 ?     00:00:00 [migration/22]
+root       120     2  0     0     0  22 дек05 ?     00:00:00 [ksoftirqd/22]
+root       121     2  0     0     0  22 дек05 ?     00:00:00 [kworker/22:0-mm_percpu_wq]
+root       122     2  0     0     0  22 дек05 ?     00:00:00 [kworker/22:0H-kblockd]
+root       123     2  0     0     0  23 дек05 ?     00:00:00 [cpuhp/23]
+root       124     2  0     0     0  23 дек05 ?     00:00:00 [migration/23]
+root       125     2  0     0     0  23 дек05 ?     00:00:00 [ksoftirqd/23]
+root       126     2  0     0     0  23 дек05 ?     00:00:00 [kworker/23:0-events]
+root       127     2  0     0     0  23 дек05 ?     00:00:00 [kworker/23:0H-kblockd]
+root       128     2  0     0     0  24 дек05 ?     00:00:00 [cpuhp/24]
+root       129     2  0     0     0  24 дек05 ?     00:00:00 [migration/24]
+root       130     2  0     0     0  24 дек05 ?     00:00:00 [ksoftirqd/24]
+root       132     2  0     0     0  24 дек05 ?     00:00:00 [kworker/24:0H-kblockd]
+root       133     2  0     0     0  25 дек05 ?     00:00:00 [cpuhp/25]
+root       134     2  0     0     0  25 дек05 ?     00:00:00 [migration/25]
+root       135     2  0     0     0  25 дек05 ?     00:00:00 [ksoftirqd/25]
+root       136     2  0     0     0  25 дек05 ?     00:00:00 [kworker/25:0-mm_percpu_wq]
+root       137     2  0     0     0  25 дек05 ?     00:00:00 [kworker/25:0H-kblockd]
+root       138     2  0     0     0  26 дек05 ?     00:00:00 [cpuhp/26]
+root       139     2  0     0     0  26 дек05 ?     00:00:00 [migration/26]
+root       140     2  0     0     0  26 дек05 ?     00:00:00 [ksoftirqd/26]
+root       141     2  0     0     0  26 дек05 ?     00:00:00 [kworker/26:0-mm_percpu_wq]
+root       142     2  0     0     0  26 дек05 ?     00:00:00 [kworker/26:0H-kblockd]
+root       143     2  0     0     0  27 дек05 ?     00:00:00 [cpuhp/27]
+root       144     2  0     0     0  27 дек05 ?     00:00:00 [migration/27]
+root       145     2  0     0     0  27 дек05 ?     00:00:00 [ksoftirqd/27]
+root       146     2  0     0     0  27 дек05 ?     00:00:00 [kworker/27:0-mm_percpu_wq]
+root       147     2  0     0     0  27 дек05 ?     00:00:00 [kworker/27:0H-kblockd]
+root       148     2  0     0     0  28 дек05 ?     00:00:00 [cpuhp/28]
+root       149     2  0     0     0  28 дек05 ?     00:00:00 [migration/28]
+root       150     2  0     0     0  28 дек05 ?     00:00:00 [ksoftirqd/28]
+root       151     2  0     0     0  28 дек05 ?     00:00:00 [kworker/28:0-mm_percpu_wq]
+root       152     2  0     0     0  28 дек05 ?     00:00:00 [kworker/28:0H-kblockd]
+root       153     2  0     0     0  29 дек05 ?     00:00:00 [cpuhp/29]
+root       154     2  0     0     0  29 дек05 ?     00:00:00 [migration/29]
+root       155     2  0     0     0  29 дек05 ?     00:00:00 [ksoftirqd/29]
+root       156     2  0     0     0  29 дек05 ?     00:00:00 [kworker/29:0-mm_percpu_wq]
+root       157     2  0     0     0  29 дек05 ?     00:00:00 [kworker/29:0H-kblockd]
+root       158     2  0     0     0  30 дек05 ?     00:00:00 [cpuhp/30]
+root       159     2  0     0     0  30 дек05 ?     00:00:00 [migration/30]
+root       160     2  0     0     0  30 дек05 ?     00:00:00 [ksoftirqd/30]
+root       161     2  0     0     0  30 дек05 ?     00:00:00 [kworker/30:0-mm_percpu_wq]
+root       162     2  0     0     0  30 дек05 ?     00:00:00 [kworker/30:0H-kblockd]
+root       163     2  0     0     0  31 дек05 ?     00:00:00 [cpuhp/31]
+root       164     2  0     0     0  31 дек05 ?     00:00:00 [migration/31]
+root       165     2  0     0     0  31 дек05 ?     00:00:00 [ksoftirqd/31]
+root       166     2  0     0     0  31 дек05 ?     00:00:00 [kworker/31:0-mm_percpu_wq]
+root       167     2  0     0     0  31 дек05 ?     00:00:00 [kworker/31:0H-kblockd]
+root       172     2  0     0     0   0 дек05 ?     00:00:01 [kworker/0:1-events]
+root       173     2  0     0     0   1 дек05 ?     00:00:00 [kworker/1:1-mm_percpu_wq]
+root       174     2  0     0     0   2 дек05 ?     00:00:00 [kworker/2:1-rcu_gp]
+root       175     2  0     0     0   5 дек05 ?     00:00:00 [kworker/5:1-events]
+root       176     2  0     0     0   3 дек05 ?     00:00:00 [kworker/3:1-mm_percpu_wq]
+root       177     2  0     0     0   6 дек05 ?     00:00:00 [kworker/6:1-mm_percpu_wq]
+root       178     2  0     0     0   4 дек05 ?     00:00:00 [kworker/4:1-mm_percpu_wq]
+root       179     2  0     0     0   7 дек05 ?     00:00:00 [kworker/7:1-mm_percpu_wq]
+root       180     2  0     0     0  15 дек05 ?     00:00:00 [kworker/15:1-mm_percpu_wq]
+root       181     2  0     0     0   3 дек05 ?     00:00:00 [kdevtmpfs]
+root       182     2  0     0     0   7 дек05 ?     00:00:00 [netns]
+root       193     2  0     0     0   5 дек05 ?     00:00:00 [kauditd]
+root       210     2  0     0     0   1 дек05 ?     00:00:00 [kworker/1:2-mm_percpu_wq]
+root       213     2  0     0     0   9 дек05 ?     00:00:00 [kworker/9:1-mm_percpu_wq]
+root       214     2  0     0     0   8 дек05 ?     00:00:00 [kworker/8:1-events_power_efficient]
+root       215     2  0     0     0  16 дек05 ?     00:00:00 [kworker/16:1-mm_percpu_wq]
+root       216     2  0     0     0  11 дек05 ?     00:00:00 [kworker/11:1-mm_percpu_wq]
+root       217     2  0     0     0  12 дек05 ?     00:00:00 [kworker/12:1-mm_percpu_wq]
+root       218     2  0     0     0  13 дек05 ?     00:00:00 [kworker/13:1-mm_percpu_wq]
+root       219     2  0     0     0  14 дек05 ?     00:00:00 [kworker/14:1-mm_percpu_wq]
+root       220     2  0     0     0  10 дек05 ?     00:00:00 [kworker/10:1-mm_percpu_wq]
+root       222     2  0     0     0  17 дек05 ?     00:00:00 [kworker/17:1-mm_percpu_wq]
+root       223     2  0     0     0  25 дек05 ?     00:00:00 [kworker/25:1-mm_percpu_wq]
+root       501     2  0     0     0   2 дек05 ?     00:00:00 [kworker/2:2-mm_percpu_wq]
+root       502     2  0     0     0   0 дек05 ?     00:00:00 [khungtaskd]
+root       503     2  0     0     0   5 дек05 ?     00:00:00 [oom_reaper]
+root       504     2  0     0     0   0 дек05 ?     00:07:50 [kworker/u65:0-flush-8:0]
+root       505     2  0     0     0   8 дек05 ?     00:00:00 [kworker/u66:0-flush-8:0]
+root       506     2  0     0     0  21 дек05 ?     00:00:12 [kworker/u67:0-flush-8:0]
+root       507     2  0     0     0  24 дек05 ?     00:00:00 [kworker/u68:0]
+root       508     2  0     0     0  24 дек05 ?     00:00:00 [writeback]
+root       510     2  0     0     0   5 дек05 ?     00:00:05 [kcompactd0]
+root       511     2  0     0     0  12 дек05 ?     00:00:05 [kcompactd1]
+root       512     2  0     0     0  21 дек05 ?     00:00:06 [kcompactd2]
+root       513     2  0     0     0  25 дек05 ?     00:00:03 [kcompactd3]
+root       514     2  0     0     0  27 дек05 ?     00:00:07 [khugepaged]
+root       515     2  0     0     0  23 дек05 ?     00:00:00 [kworker/23:1-mm_percpu_wq]
+root       541     2  0     0     0   1 дек05 ?     00:00:00 [kintegrityd]
+root       543     2  0     0     0   2 дек05 ?     00:00:00 [kblockd]
+root       544     2  0     0     0   3 дек05 ?     00:00:00 [blkcg_punt_bio]
+root       552     2  0     0     0   6 дек05 ?     00:00:00 [tpm_dev_wq]
+root       557     2  0     0     0   0 дек05 ?     00:00:00 [ata_sff]
+root       576     2  0     0     0   4 дек05 ?     00:00:00 [md]
+root       621     2  0     0     0   7 дек05 ?     00:00:00 [watchdogd]
+root       623     2  0     0     0  19 дек05 ?     00:00:00 [kworker/19:1-mm_percpu_wq]
+root       624     2  0     0     0  18 дек05 ?     00:00:00 [kworker/18:1-events_power_efficient]
+root       625     2  0     0     0  20 дек05 ?     00:00:00 [kworker/20:1-events]
+root       626     2  0     0     0  21 дек05 ?     00:00:00 [kworker/21:1-mm_percpu_wq]
+root       627     2  0     0     0  24 дек05 ?     00:00:00 [kworker/24:1-rcu_gp]
+root       628     2  0     0     0  22 дек05 ?     00:00:00 [kworker/22:1-mm_percpu_wq]
+root       629     2  0     0     0  26 дек05 ?     00:00:00 [kworker/26:1-mm_percpu_wq]
+root       630     2  0     0     0  27 дек05 ?     00:00:00 [kworker/27:1-mm_percpu_wq]
+root       631     2  0     0     0  28 дек05 ?     00:00:00 [kworker/28:1-mm_percpu_wq]
+root       632     2  0     0     0  30 дек05 ?     00:00:00 [kworker/30:1-mm_percpu_wq]
+root       633     2  0     0     0  29 дек05 ?     00:00:00 [kworker/29:1-mm_percpu_wq]
+root       634     2  0     0     0  31 дек05 ?     00:00:00 [kworker/31:1-mm_percpu_wq]
+root       719     2  0     0     0   7 дек05 ?     00:00:00 [rpciod]
+root       720     2  0     0     0   4 дек05 ?     00:00:00 [kworker/u69:0]
+root       721     2  0     0     0   5 дек05 ?     00:00:00 [kworker/u70:0]
+root       722     2  0     0     0   8 дек05 ?     00:00:00 [kworker/u71:0]
+root       723     2  0     0     0  16 дек05 ?     00:00:00 [kworker/u72:0]
+root       724     2  0     0     0  24 дек05 ?     00:00:00 [kworker/u73:0]
+root       725     2  0     0     0   6 дек05 ?     00:00:00 [xprtiod]
+root       805     2  0     0     0   5 дек05 ?     00:07:38 [kswapd0]
+root       806     2  0     0     0  12 дек05 ?     00:06:35 [kswapd1]
+root       807     2  0     0     0  22 дек05 ?     00:03:20 [kswapd2]
+root       808     2  0     0     0  30 дек05 ?     00:02:54 [kswapd3]
+root       973     2  0     0     0   0 дек05 ?     00:00:00 [nfsiod]
+root       984     2  0     0     0   1 дек05 ?     00:00:00 [kthrotld]
+root      1043     2  0     0     0   3 дек05 ?     00:00:00 [nvme-wq]
+root      1045     2  0     0     0   4 дек05 ?     00:00:00 [nvme-reset-wq]
+root      1047     2  0     0     0   6 дек05 ?     00:00:00 [nvme-delete-wq]
+root      1064     2  0     0     0   5 дек05 ?     00:00:00 [scsi_eh_0]
+root      1065     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_0]
+root      1069     2  0     0     0   2 дек05 ?     00:00:00 [scsi_eh_1]
+root      1070     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_1]
+root      1073     2  0     0     0   2 дек05 ?     00:00:00 [scsi_eh_2]
+root      1074     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_2]
+root      1077     2  0     0     0   0 дек05 ?     00:00:00 [scsi_eh_3]
+root      1078     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_3]
+root      1096     2  0     0     0   4 дек05 ?     00:00:00 [scsi_eh_4]
+root      1097     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_4]
+root      1100     2  0     0     0   3 дек05 ?     00:00:00 [scsi_eh_5]
+root      1101     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_5]
+root      1104     2  0     0     0   2 дек05 ?     00:00:00 [scsi_eh_6]
+root      1105     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_6]
+root      1108     2  0     0     0   0 дек05 ?     00:00:00 [scsi_eh_7]
+root      1109     2  0     0     0   2 дек05 ?     00:00:00 [scsi_tmf_7]
+root      1221     2  0     0     0  24 дек05 ?     00:00:00 [kworker/24:2-mm_percpu_wq]
+root      1223     2  0     0     0  25 дек05 ?     00:00:00 [kworker/25:1H-kblockd]
+root      1264     2  0     0     0   4 дек05 ?     00:00:00 [ipv6_addrconf]
+root      1272     2  0     0     0  22 дек05 ?     00:00:07 [printk]
+root      1287     2  0     0     0   0 дек05 ?     00:00:01 [kworker/0:3-events]
+root      1353     2  0     0     0  11 дек05 ?     00:00:02 [kworker/11:1H-kblockd]
+root      1354     2  0     0     0   0 дек05 ?     00:00:01 [kworker/0:1H-kblockd]
+root      1355     2  0     0     0   5 дек05 ?     00:01:06 [kworker/5:1H-kblockd]
+root      1356     2  0     0     0   6 дек05 ?     00:01:03 [jbd2/sda2-8]
+root      1357     2  0     0     0   4 дек05 ?     00:00:00 [ext4-rsv-conver]
+root      1361     2  0     0     0   9 дек05 ?     00:00:02 [kworker/9:1H-kblockd]
+root      1362     2  0     0     0  15 дек05 ?     00:00:02 [kworker/15:1H-kblockd]
+root      1363     2  0     0     0   8 дек05 ?     00:00:02 [kworker/8:1H-kblockd]
+root      1370     2  0     0     0  13 дек05 ?     00:00:01 [kworker/13:1H-kblockd]
+root      1383     2  0     0     0   3 дек05 ?     00:00:00 [kworker/3:1H-kblockd]
+root      1391     2  0     0     0  10 дек05 ?     00:00:02 [kworker/10:1H-kblockd]
+root      1394     2  0     0     0  12 дек05 ?     00:00:03 [kworker/12:1H-kblockd]
+root      1395     2  0     0     0   5 дек05 ?     00:00:00 [kworker/5:2-mm_percpu_wq]
+root      1409     2  0     0     0  14 дек05 ?     00:00:01 [kworker/14:1H-kblockd]
+root      1410     2  0     0     0  12 дек05 ?     00:01:43 [kworker/u66:1-flush-8:0]
+root      1462     2  0     0     0   3 дек05 ?     00:00:00 [ext4-rsv-conver]
+root      1463     2  0     0     0   8 дек05 ?     00:00:00 [loop0]
+root      1465     2  0     0     0   9 дек05 ?     00:00:00 [loop1]
+root      1467     2  0     0     0   8 дек05 ?     00:00:00 [loop2]
+root      1476     1  0  4502  6492   1 дек05 ?     00:00:00 /usr/sbin/udevd --daemon
+root      2791     2  0     0     0  19 дек05 ?     00:00:01 [kworker/19:1H-kblockd]
+root      2811     2  0     0     0  31 дек05 ?     00:00:00 [kworker/31:1H-kblockd]
+root      2855     2  0     0     0  16 дек05 ?     00:00:03 [kworker/16:1H-kblockd]
+root      2898     2  0     0     0  28 дек05 ?     00:00:00 [kworker/28:1H-kblockd]
+root      3110     2  0     0     0   8 дек05 ?     00:00:00 [kworker/8:2-rcu_gp]
+root      3157     2  0     0     0   0 дек05 ?     00:00:00 [irq/6-mpv]
+root      3158     2  0     0     0   0 дек05 ?     00:00:00 [irq/9-mpv]
+entityfx  3174 22438  0 175798 95384 16 дек06 pts/1 00:00:00 /opt/mcst/rtc-4.0/bin/rtc_opt_rel_p1_x64_ob --path_prefix /opt/mcst/
+entityfx  3176     1  0 171325 29948 10 дек06 pts/1 00:00:07 [rtc compiler #0 for pid 3174] /bin/bash
+entityfx  3178     1  0 171325 21240 30 дек06 pts/1 00:00:05 [rtc compiler #1 for pid 3174] /bin/bash
+root      3315     2  0     0     0  27 дек05 ?     00:00:00 [kworker/27:1H-kblockd]
+root      3891     2  0     0     0  18 дек05 ?     00:00:02 [kworker/18:1H-kblockd]
+root      4471     2  0     0     0  20 дек05 ?     00:00:02 [kworker/20:1H-kblockd]
+root      4654     2  0     0     0  21 дек05 ?     00:00:02 [kworker/21:1H-kblockd]
+root      5200     2  0     0     0  23 дек05 ?     00:00:07 [kworker/23:1H-kblockd]
+root      5908     2  0     0     0  17 дек05 ?     00:00:00 [ttm_swap]
+root      5909     2  0     0     0  16 дек05 ?     00:00:00 [gfx]
+root      5910     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.0.0]
+root      5911     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.1.0]
+root      5912     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.2.0]
+root      5913     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.3.0]
+root      5914     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.0.1]
+root      5915     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.1.1]
+root      5916     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.2.1]
+root      5917     2  0     0     0  18 дек05 ?     00:00:00 [comp_1.3.1]
+root      5918     2  0     0     0  18 дек05 ?     00:00:00 [sdma0]
+root      5919     2  0     0     0  18 дек05 ?     00:00:00 [sdma1]
+root      5920     2  0     0     0  18 дек05 ?     00:00:00 [uvd]
+root      5921     2  0     0     0  18 дек05 ?     00:00:00 [uvd_enc0]
+root      5922     2  0     0     0  18 дек05 ?     00:00:00 [uvd_enc1]
+root      5923     2  0     0     0  18 дек05 ?     00:00:00 [vce0]
+root      5924     2  0     0     0  18 дек05 ?     00:00:00 [vce1]
+root      5925     2  0     0     0  18 дек05 ?     00:00:00 [vce2]
+root      6259     1  0  1390  2808   8 дек05 ?     00:00:00 /usr/sbin/acpid
+root      6278     2  0     0     0  15 дек05 ?     00:00:00 [kworker/15:2-rcu_par_gp]
+root      6357     1  0  1442  2980   6 дек05 ?     00:00:10 syslogd -m 0
+root      6360     1  0  2777  8328  13 дек05 ?     00:00:00 klogd
+root      6376     2  0     0     0  30 дек05 ?     00:00:00 [kworker/30:1H-kblockd]
+root      6381     1  0  2920  6360   5 дек05 ?     00:01:19 /usr/sbin/haveged -w 1024 -v 1
+root      6416     1  0  1622  2544   5 дек05 ?     00:00:02 /usr/bin/rpcbind
+root      6431     2  0     0     0  17 дек05 ?     00:00:02 [kworker/17:1H-kblockd]
+root      6434     1  0 22749  4668   1 дек05 ?     00:00:00 /usr/sbin/chronyd
+root      6436     2  0     0     0  24 дек05 ?     00:00:00 [kworker/24:1H-kblockd]
+pulse     6438     1  0 44184 11756  26 дек05 ?     00:00:00 /usr/bin/pulseaudio --system -D
+message+  6439     1  0  2137  4092  25 дек05 ?     00:00:00 /usr/bin/dbus-daemon --system
+nobody    6447     1  0 178477 5228   4 дек05 ?     00:00:14 /usr/sbin/nscd
+root      6462     2  0     0     0   6 дек05 ?     00:00:01 [kworker/6:1H-kblockd]
+root      6469     1  0  2213  4280  10 дек05 ?     00:00:00 /usr/sbin/xinetd
+root      6475     1  0 20980  8328   7 дек05 ?     00:00:17 ntpd -b
+root      6481     1  0  3657  5540   4 дек05 ?     00:00:03 /usr/sbin/sshd
+root      6489     1  0 29054  5620  13 дек05 ?     00:00:00 /usr/sbin/virtlockd -d
+root      6503     1  0 29051  5564  15 дек05 ?     00:00:00 /usr/sbin/virtlogd -d
+root      6516     1  0  1384  3104   5 дек05 ?     00:00:00 /usr/sbin/cron
+root      6524     1  0 343277 31024 10 дек05 ?     00:00:00 /usr/sbin/libvirtd -d
+root      6556     2  0     0     0  26 дек05 ?     00:00:00 [kworker/26:1H-kblockd]
+mpd       6609     1  0 113827 14768 26 дек05 ?     00:00:00 /usr/bin/mpd /etc/mpd.conf
+root      6622     1  0 10141 24256  10 дек05 ?     00:00:00 /usr/bin/slim -d
+root      6629  6622  0 905166 180872 8 дек05 tty7  00:00:09 /usr/bin/X -auth /var/run/slim.auth vt07
+daemon    6630     1  0  1370   152  14 дек05 ?     00:00:00 /usr/sbin/atd
+root      6637     1  0  2611  4192  12 дек05 ?     00:00:00 /bin/sh /etc/rc5.d/S06x11vnc start
+root      6642  6637  0  5503  2412   7 дек05 ?     00:00:00 /usr/bin/x11vnc -display :0 -auth /var/run/slim.auth -loop -localhos
+root      6645     1  0  1805  2592   0 дек05 ?     00:00:00 /usr/sbin/gpm -m /dev/mouse -t ps2
+root      6654     2  0     0     0   7 дек05 ?     00:00:00 [kworker/7:1H-kblockd]
+root      6657     1  0  4027  6668  27 дек05 ?     00:00:00 /usr/sbin/cupsd -C /etc/cups/cupsd.conf -s /etc/cups/cups-files.conf
+root      6658  6642  0  7798 11816  13 дек05 ?     00:03:24 /usr/bin/x11vnc -display :0 -auth /var/run/slim.auth -loop -localhos
+root      6659     2  0     0     0   2 дек05 ?     00:00:01 [kworker/2:1H-kblockd]
+root      6660     1  0  2218   728  11 дек05 tty1  00:00:00 /sbin/agetty tty1 115200
+root      6661     1  0  2218   736   8 дек05 tty2  00:00:00 /sbin/agetty tty2 115200
+root      6662     1  0  2218   756   9 дек05 tty3  00:00:00 /sbin/agetty tty3 115200
+root      6663     1  0  2218   684  10 дек05 tty4  00:00:00 /sbin/agetty tty4 115200
+root      6664     1  0  2218   748  15 дек05 tty5  00:00:00 /sbin/agetty tty5 115200
+root      6665     1  0  2218   692  20 дек05 tty6  00:00:00 /sbin/agetty tty6 115200
+root      6666     1  0  1398   752  13 дек05 ttyS0 00:00:00 /sbin/agetty -L ttyS0 115200
+root      6673     2  0     0     0   4 дек05 ?     00:00:00 [kworker/4:2]
+root      6692     2  0     0     0  22 дек05 ?     00:00:03 [kworker/22:1H-kblockd]
+root      6757     2  0     0     0   0 дек05 ?     00:00:00 [kworker/u65:1]
+root      6758     2  0     0     0   4 дек05 ?     00:00:01 [kworker/4:1H-kblockd]
+root      6950     2  0     0     0  18 дек05 ?     00:00:00 [kworker/u67:1]
+root      7030     2  0     0     0   1 дек05 ?     00:00:00 [kworker/1:1H-kblockd]
+root      7233     2  0     0     0  29 дек05 ?     00:00:00 [kworker/29:1H-kblockd]
+entityfx  7953  3174  3 177155 94896  4 дек06 pts/1 01:41:21 /opt/mcst/rtc-4.0/bin/rtc_opt_rel_p1_x64_ob --path_prefix /opt/mcst/
+entityfx  7960     1  0 171266 61952 16 дек06 pts/1 00:00:13 [rtc compiler #0 for pid 7953] /usr/bin/top
+entityfx  7962     1  0 171250 25916  0 дек06 pts/1 00:00:07 [rtc compiler #1 for pid 7953] /usr/bin/top
+root     18101     2  0     0     0   3 19:45 ?        00:00:00 [kworker/u64:2-events_unbound]
+root     18569  6481  0  4146 11864   7 20:04 ?        00:00:00 sshd: student_ithub10 [priv]
+student+ 18571 18569  0  4146  6232   2 20:04 ?        00:00:00 sshd: student_ithub10@pts/0
+student+ 18572 18571  0  3992 12424   6 20:04 pts/0    00:00:00 -bash
+root     18586     2  0     0     0   5 20:04 ?        00:00:00 [kworker/u64:1-events_unbound]
+root     18594     2  0     0     0   1 20:09 ?        00:00:00 [kworker/u64:0-events_unbound]
+student+ 18804 18572  0  2488  4924   0 20:17 pts/0    00:00:00 ps -eF
+root     20997     2  0     0     0  31 дек05 ?     00:00:06 [kworker/u68:1-flush-8:0]
+root     22435  6481  0  4147 11728   6 дек05 ?     00:00:00 sshd: entityfx [priv]
+entityfx 22437 22435  0  4147  7592   2 дек05 ?     00:00:37 sshd: entityfx@pts/1
+entityfx 22438 22437  0  4225 14032   6 дек05 pts/1 00:00:02 -bash
+
+student_ithub10@yukari:~$ ps -efH
+
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         2     0  0 дек05 ?     00:00:00 [kthreadd]
+root         3     2  0 дек05 ?     00:00:00   [rcu_gp]
+root         4     2  0 дек05 ?     00:00:00   [rcu_par_gp]
+root         6     2  0 дек05 ?     00:00:00   [kworker/0:0H-kblockd]
+root         8     2  0 дек05 ?     00:00:00   [mm_percpu_wq]
+root         9     2  0 дек05 ?     00:00:00   [ksoftirqd/0]
+root        10     2  0 дек05 ?     00:00:05   [rcu_sched]
+root        11     2  0 дек05 ?     00:00:00   [migration/0]
+root        12     2  0 дек05 ?     00:00:00   [cpuhp/0]
+root        13     2  0 дек05 ?     00:00:00   [cpuhp/1]
+root        14     2  0 дек05 ?     00:00:00   [migration/1]
+root        15     2  0 дек05 ?     00:00:00   [ksoftirqd/1]
+root        17     2  0 дек05 ?     00:00:00   [kworker/1:0H-kblockd]
+root        18     2  0 дек05 ?     00:00:00   [cpuhp/2]
+root        19     2  0 дек05 ?     00:00:00   [migration/2]
+root        20     2  0 дек05 ?     00:00:00   [ksoftirqd/2]
+root        22     2  0 дек05 ?     00:00:00   [kworker/2:0H-kblockd]
+root        23     2  0 дек05 ?     00:00:00   [cpuhp/3]
+root        24     2  0 дек05 ?     00:00:00   [migration/3]
+root        25     2  0 дек05 ?     00:00:00   [ksoftirqd/3]
+root        26     2  0 дек05 ?     00:00:00   [kworker/3:0-mm_percpu_wq]
+root        27     2  0 дек05 ?     00:00:00   [kworker/3:0H-kblockd]
+root        28     2  0 дек05 ?     00:00:00   [cpuhp/4]
+root        29     2  0 дек05 ?     00:00:00   [migration/4]
+root        30     2  0 дек05 ?     00:00:00   [ksoftirqd/4]
+root        32     2  0 дек05 ?     00:00:00   [kworker/4:0H-kblockd]
+root        33     2  0 дек05 ?     00:00:00   [cpuhp/5]
+root        34     2  0 дек05 ?     00:00:00   [migration/5]
+root        35     2  0 дек05 ?     00:00:00   [ksoftirqd/5]
+root        37     2  0 дек05 ?     00:00:00   [kworker/5:0H-kblockd]
+root        38     2  0 дек05 ?     00:00:00   [cpuhp/6]
+root        39     2  0 дек05 ?     00:00:00   [migration/6]
+root        40     2  0 дек05 ?     00:00:00   [ksoftirqd/6]
+root        41     2  0 дек05 ?     00:00:00   [kworker/6:0-mm_percpu_wq]
+root        42     2  0 дек05 ?     00:00:00   [kworker/6:0H-kblockd]
+root        43     2  0 дек05 ?     00:00:00   [cpuhp/7]
+root        44     2  0 дек05 ?     00:00:00   [migration/7]
+root        45     2  0 дек05 ?     00:00:00   [ksoftirqd/7]
+root        46     2  0 дек05 ?     00:00:00   [kworker/7:0-mm_percpu_wq]
+root        47     2  0 дек05 ?     00:00:00   [kworker/7:0H]
+root        48     2  0 дек05 ?     00:00:00   [cpuhp/8]
+root        49     2  0 дек05 ?     00:00:00   [migration/8]
+root        50     2  0 дек05 ?     00:00:00   [ksoftirqd/8]
+root        52     2  0 дек05 ?     00:00:00   [kworker/8:0H-kblockd]
+root        53     2  0 дек05 ?     00:00:00   [cpuhp/9]
+root        54     2  0 дек05 ?     00:00:00   [migration/9]
+root        55     2  0 дек05 ?     00:00:00   [ksoftirqd/9]
+root        56     2  0 дек05 ?     00:00:00   [kworker/9:0-mm_percpu_wq]
+root        57     2  0 дек05 ?     00:00:00   [kworker/9:0H-kblockd]
+root        58     2  0 дек05 ?     00:00:00   [cpuhp/10]
+root        59     2  0 дек05 ?     00:00:00   [migration/10]
+root        60     2  0 дек05 ?     00:00:00   [ksoftirqd/10]
+root        61     2  0 дек05 ?     00:00:00   [kworker/10:0-mm_percpu_wq]
+root        62     2  0 дек05 ?     00:00:00   [kworker/10:0H-kblockd]
+root        63     2  0 дек05 ?     00:00:00   [cpuhp/11]
+root        64     2  0 дек05 ?     00:00:00   [migration/11]
+root        65     2  0 дек05 ?     00:00:00   [ksoftirqd/11]
+root        66     2  0 дек05 ?     00:00:00   [kworker/11:0-mm_percpu_wq]
+root        67     2  0 дек05 ?     00:00:00   [kworker/11:0H-kblockd]
+root        68     2  0 дек05 ?     00:00:00   [cpuhp/12]
+......
+
+
+
+student_ithub10@yukari:~$ top
+top - 20:20:26 up 3 days, 18:25,  2 users,  load average: 0,00, 0,00, 0,00
+Tasks: 365 total,   1 running, 364 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0,0 us,  0,1 sy,  0,0 ni, 99,8 id,  0,0 wa,  0,0 hi,  0,0 si,  0,0 st
+KiB Mem : 13179324+total, 10854715+free,  1357304 used, 21888780 buff/cache
+KiB Swap:        0 total,        0 free,        0 used. 12885644+avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    1 root      20   0    5540   2800   2660 S   0,0   0,0   0:21.83 init
+ 1476 root      30  10   18008   6492   4388 S   0,0   0,0   0:00.76  `- udevd
+ 6259 root      20   0    5560   2808   2672 S   0,0   0,0   0:00.00  `- acpid
+ 6357 root      30  10    5768   2980   2756 S   0,0   0,0   0:10.17  `- syslogd
+ 6360 root      30  10   11108   8328   2756 S   0,0   0,0   0:00.59  `- klogd
+ 6381 root      20   0   11680   6360   3108 S   0,0   0,0   1:19.17  `- haveged
+ 6416 root      30  10    6488   2544   2280 S   0,0   0,0   0:02.08  `- rpcbind
+ 6434 root      20   0   90996   4668   4236 S   0,0   0,0   0:00.18  `- chronyd
+ 6438 pulse      9 -11  176736  11756   8504 S   0,0   0,0   0:00.08  `- pulseaudio
+ 6439 message+  20   0    8548   4092   3624 S   0,0   0,0   0:00.01  `- dbus-daemon
+ 6447 nobody    30  10  713908   5228   4332 S   0,0   0,0   0:14.83  `- nscd
+ 6469 root      30  10    8852   4280   3944 S   0,0   0,0   0:00.00  `- xinetd
+ 6475 root      20   0   83920   8328   7332 S   0,0   0,0   0:17.68  `- ntpd
+ 6481 root      20   0   14628   5540   4916 S   0,0   0,0   0:03.64  `- sshd
+22435 root      20   0   16588  11728  10452 S   0,0   0,0   0:00.96      `- sshd
+22437 entityfx  20   0   16588   7592   6268 S   0,0   0,0   0:37.33          `- sshd
+22438 entityfx  20   0   16900  14032  10316 S   0,0   0,0   0:02.07              `- bash
+ 3174 entityfx  20   0  703192  95384  11760 S   0,0   0,1   0:00.58                  `- bash
+ 7953 entityfx  20   0  708620  94896  11704 S   3,3   0,1 101:27.96                      `- top
+18569 root      20   0   16584  11864  10588 S   0,0   0,0   0:00.03      `- sshd
+18571 student+  20   0   16584   6232   4948 S   0,0   0,0   0:00.19          `- sshd
+18572 student+  20   0   15968  12424   9728 S   0,0   0,0   0:00.45              `- bash
+18807 student+  20   0   11664   5780   4832 R   1,0   0,0   0:01.98                  `- top
+ 6489 root      20   0  116216   5620   4456 S   0,0   0,0   0:00.00  `- virtlockd
+ 6503 root      20   0  116204   5564   4400 S   0,0   0,0   0:00.00  `- virtlogd
+ 6516 root      30  10    5536   3104   2904 S   0,0   0,0   0:00.79  `- cron
+ 6524 root      20   0 1373108  31024  17476 S   0,0   0,0   0:00.33  `- libvirtd
+ 6609 mpd       20   0  455308  14768   6984 S   0,0   0,0   0:00.00  `- mpd
+ 6622 root      20   0   40564  24256  11424 S   0,0   0,0   0:00.57  `- slim
+ 6629 root      20   0 3620664 180872  97336 S   0,0   0,1   0:09.95      `- X
+ 6630 daemon    30  10    5480    152     36 S   0,0   0,0   0:00.00  `- atd
+ 6637 root      20   0   10444   4192   3652 S   0,0   0,0   0:00.00  `- S06x11vnc
+ 6642 root      30  10   22012   2412   1924 S   0,0   0,0   0:00.00      `- x11vnc
+ 6658 root      30  10   31192  11816   7304 S   0,0   0,0   3:24.45          `- x11vnc
+ 6645 root      30  10    7220   2592   2440 S   0,0   0,0   0:00.00  `- gpm
+ 6657 root      20   0   16108   6668   5792 S   0,0   0,0   0:00.01  `- cupsd
+ 6660 root      20   0    8872    728    636 S   0,0   0,0   0:00.01  `- agetty
+ 6661 root      20   0    8872    736    644 S   0,0   0,0   0:00.00  `- agetty
+ 6662 root      20   0    8872    756    664 S   0,0   0,0   0:00.00  `- agetty
+ 6663 root      20   0    8872    684    592 S   0,0   0,0   0:00.00  `- agetty
+ 6664 root      20   0    8872    748    656 S   0,0   0,0   0:00.00  `- agetty
+ 6665 root      20   0    8872    692    600 S   0,0   0,0   0:00.00  `- agetty
+ 6666 root      20   0    5592    752    660 S   0,0   0,0   0:00.00  `- agetty
+ 3176 entityfx  20   0  685300  29948   5024 S   0,0   0,0   0:07.71  `- rtc compiler #0
+ 3178 entityfx  20   0  685300  21240    480 S   0,0   0,0   0:05.15  `- rtc compiler #1
+ 7960 entityfx  20   0  685064  61952  24436 S   0,0   0,0   0:14.00  `- rtc compiler #0
+ 7962 entityfx  20   0  685000  25916   5092 S   0,0   0,0   0:07.74  `- rtc compiler #1
+    2 root      20   0       0      0      0 S   0,0   0,0   0:00.07 kthreadd
+    3 root       0 -20       0      0      0 I   0,0   0,0   0:00.00  `- rcu_gp
+    4 root       0 -20       0      0      0 I   0,0   0,0   0:00.00  `- rcu_par_gp
+    6 root       0 -20       0      0      0 I   0,0   0,0   0:00.00  `- kworker/0:0H-kblockd
+    8 root       0 -20       0      0      0 I   0,0   0,0   0:00.00  `- mm_percpu_wq
+    9 root      20   0       0      0      0 S   0,0   0,0   0:00.03  `- ksoftirqd/0
+   10 root      20   0       0      0      0 I   0,0   0,0   0:05.05  `- rcu_sched
+   11 root      rt   0       0      0      0 S   0,0   0,0   0:00.10  `- migration/0
+   12 root      20   0       0      0      0 S   0,0   0,0   0:00.00  `- cpuhp/0
+   13 root      20   0       0      0      0 S   0,0   0,0   0:00.00  `- cpuhp/1
+   14 root      rt   0       0      0      0 S   0,0   0,0   0:00.08  `- migration/1
+   15 root      20   0       0      0      0 S   0,0   0,0   0:00.06  `- ksoftirqd/1
+.........
+
+
+
+
+student_ithub10@yukari:~$ htop
+
+
+     Нельзя скопировать
+
+
+
+14. 
+
+student_ithub10@yukari:~$ ip a
+
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 12:34:56:78:9a:bc brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.144/24 brd 192.168.0.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::1034:56ff:fe78:9abc/64 scope link
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 12:34:56:78:9a:bd brd ff:ff:ff:ff:ff:ff
+4: eth2: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 12:34:56:78:9a:be brd ff:ff:ff:ff:ff:ff
+5: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+
+student_ithub10@yukari:~$ lspci | grep -i 'net'
+01:01.0 Ethernet controller: MCST Gigabit Ethernet Controller
+01:01.1 Ethernet controller: MCST Gigabit Ethernet Controller
+01:01.2 Ethernet controller: MCST Gigabit Ethernet Controller
+
+student_ithub10@yukari:~$ ip r
+
+default via 192.168.0.1 dev eth0
+192.168.0.0/24 dev eth0 proto kernel scope link src 192.168.0.144
+
+student_ithub10@yukari:~$ cat /var/lib/NetworkManager/
+cat: /var/lib/NetworkManager/: Отказано в доступе
+
+DHCP нетy
+
+
+
+15.  16.
+
+student_ithub10@yukari:~$ lspci
+
+00:00.0 PCI bridge: MCST Virtual Bridge
+01:00.0 PCI bridge: MCST PCI Bridge (rev 06)
+01:01.0 Ethernet controller: MCST Gigabit Ethernet Controller
+01:01.1 Ethernet controller: MCST Gigabit Ethernet Controller
+01:01.2 Ethernet controller: MCST Gigabit Ethernet Controller
+01:02.0 IDE interface: MCST IDE controller
+01:02.1 Multiport serial controller: MCST I2C SPI (rev 05)
+01:02.2 Communication controller: MCST Parallel and Serial
+01:02.3 Multimedia audio controller: MCST HD Audio
+01:02.4 Communication controller: MCST GPIO MPV
+01:03.0 SATA controller: MCST SATA
+01:03.1 SATA controller: MCST SATA
+01:04.0 PCI bridge: MCST PCI-Express x4 (rev 01)
+01:05.0 PCI bridge: MCST PCI-Express x4 (rev 01)
+01:06.0 PCI bridge: MCST PCI-Express x4 (rev 01)
+01:07.0 PCI bridge: MCST PCI-Express x4 (rev 01)
+01:08.0 PCI bridge: MCST PCI-Express x16 (rev 01)
+01:09.0 PCI bridge: MCST PCI-Express x16 (rev 01)
+01:0a.0 USB controller: MCST USB 2.0 ohci
+01:0a.1 USB controller: MCST USB 2.0 ehci
+01:0b.0 USB controller: MCST USB 2.0 ohci
+01:0b.1 USB controller: MCST USB 2.0 ehci
+01:0c.0 Non-VGA unclassified device: MCST System Power Managment (SPMC)
+02:03.0 VGA compatible controller: Silicon Motion, Inc. SM718 LynxSE+ (rev a0)
+07:00.0 VGA compatible controller: Advanced Micro Devices, Inc. [AMD/ATI] Lexa PRO [Radeon 540/540X/550/550X / RX 540X/550/550X] (rev c7)
+07:00.1 Audio device: Advanced Micro Devices, Inc. [AMD/ATI] Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X]
+
+
+
+17.
+
+student_ithub10@yukari:~$ cat /proc/cpuinfo
+
+processor       : 0
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 1
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 2
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 3
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 4
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 5
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 6
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 7
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 8
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 9
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 10
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 11
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 12
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 13
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 14
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 15
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 16
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 17
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 18
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 19
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 20
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 21
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 22
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 23
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 24
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 25
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 26
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 27
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 28
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 29
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 30
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+processor       : 31
+vendor_id       : E8C-SWTX
+cpu family      : 4
+model           : 7
+model name      : E8C
+revision        : 2
+cpu MHz         : 1200
+bogomips        : 2400.00
+
+cache0          : level=1 type=Instruction scope=Private size=128K line_size=256 associativity=4
+cache1          : level=1 type=Data scope=Private size=64K line_size=32 associativity=4
+cache2          : level=2 type=Unified scope=Private size=512K line_size=64 associativity=4
+cache3          : level=3 type=Unified scope=Shared size=16384K line_size=64 associativity=16
+
+
+student_ithub10@yukari:~$ lscpu
+
+Архитектура:         e2k
+Порядок байт:        Little Endian
+CPU(s):              32
+On-line CPU(s) list: 0-31
+Thread(s) per core:  1
+Ядер на сокет:       8
+Сокетов:             4
+NUMA node(s):        4
+ID прроизводителя:   E8C-SWTX
+Семейство ЦПУ:       4
+Модель:              2
+Имя модели:          E8C
+CPU MHz:             1200
+BogoMIPS:            2400.00
+L1d cache:           64K
+L1i cache:           128K
+L2 cache:            512K
+L3 cache:            16384K
+L3 cache:            16384K
+NUMA node0 CPU(s):   0-7
+NUMA node1 CPU(s):   8-15
+NUMA node2 CPU(s):   16-23
+NUMA node3 CPU(s):   24-31
+
+
+18. http://www.mcst.ru/files/5ed39a/dd0cd8/50506b/000000/elbrus_prog_2020-05-30.pdf
+
+
+19.
+student_ithub10@yukari:~$ lsmod
+
+Module                  Size  Used by
+ebtable_filter         16384  0
+ebtables              110592  1 ebtable_filter
+ip6_tables             69632  0
+iptable_filter         16384  0
+ip_tables              69632  1 iptable_filter
+x_tables               86016  4 ebtables,iptable_filter,ip6_tables,ip_tables
+lm63                   49152  0
+l_pcs                  16384  0
+jc42                   24576  0
+pmbus                  20480  0
+pmbus_core             94208  1 pmbus
+amdgpu              11206656  3
+ide_pci_generic        16384  0
+evdev                  61440  0
+input_leds             16384  0
+gpu_sched             122880  1 amdgpu
+snd_hda_codec_hdmi    167936  1
+ttm                   319488  1 amdgpu
+drm_kms_helper        634880  1 amdgpu
+snd_hda_intel          90112  2
+snd_hda_codec         364544  2 snd_hda_codec_hdmi,snd_hda_intel
+syscopyarea            20480  1 drm_kms_helper
+sysfillrect            20480  1 drm_kms_helper
+sysimgblt              16384  1 drm_kms_helper
+fb_sys_fops            16384  1 drm_kms_helper
+drm                  1462272  6 gpu_sched,drm_kms_helper,amdgpu,ttm
+snd_hda_core          208896  3 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec
+snd_hwdep              32768  1 snd_hda_codec
+snd_pcm               385024  4 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core
+spidev                 32768  0
+drm_panel_orientation_quirks    16384  1 drm
+i2c_algo_bit           32768  1 amdgpu
+snd_timer             139264  1 snd_pcm
+l_ide                  20480  0
+ide_core              327680  2 l_ide,ide_pci_generic
+snd                   299008  10 snd_hda_codec_hdmi,snd_hwdep,snd_hda_intel,snd_hda_codec,snd_timer,snd_pcm
+sdhci_pci             167936  0
+soundcore              28672  1 snd
+8250_base             258048  0
+cqhci                  69632  1 sdhci_pci
+sdhci                 237568  1 sdhci_pci
+mpv                   151552  0
+led_class              20480  2 sdhci,input_leds
+serial_mctrl_gpio      24576  1 8250_base
+loop                  106496  6
+i2c_dev                36864  0
+
+Подробности о конкретном модуле через утилиту modinfo
+
+student_ithub10@yukari:~$ modinfo fuse
+
+filename:       /lib/modules/5.4.0-3.13-e8c/kernel/fs/fuse/fuse.ko
+alias:          char-major-10-229
+alias:          devname:fuse
+author:         Miklos Szeredi <miklos@szeredi.hu>
+description:    Filesystem in Userspace
+license:        GPL
+alias:          fs-fuse
+alias:          fs-fuseblk
+alias:          fs-fusectl
+vermagic:       5.4.0-3.13-e8c SMP mod_unload modversions
+name:           fuse
+intree:         Y
+depends:
+parm:           max_user_congthresh:Global limit for the maximum congestion threshold an unprivileged user can set (uint)
+parm:           max_user_bgreq:Global limit for the maximum number of backgrounded requests an unprivileged user can set (uint)
+
+
+
+20.
+
+student_ithub10@yukari:~$ hwinfo
+
+..........
+120: None 00.0: 10700 Loopback
+  [Created at net.126]
+  Unique ID: ZsBS.GQNx7L4uPNA
+  SysFS ID: /class/net/lo
+  Hardware Class: network interface
+  Model: "Loopback network interface"
+  Device File: lo
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+121: None 00.0: 10781 Network Interface
+  [Created at net.126]
+  Unique ID: wl2P.nfEXJulusj6
+  SysFS ID: /class/net/sit0
+  Hardware Class: network interface
+  Model: "Network Interface"
+  Device File: sit0
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+
+122: None 02.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: pDke.ndpeucax6V1
+  Parent ID: mY_N.mnwwQND4dR0
+  SysFS ID: /class/net/eth2
+  SysFS Device Link: /devices/pci0000:00/0000:00:00.0/0000:01:01.2
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "l_e1000"
+  Driver Modules: "l_e1000"
+  Device File: eth2
+  HW Address: 12:34:56:78:9a:be
+  Permanent HW Address: 12:34:56:78:9a:be
+  Link detected: no
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #59 (Ethernet controller)
+
+123: None 00.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: usDW.ndpeucax6V1
+  Parent ID: rBUF.mnwwQND4dR0
+  SysFS ID: /class/net/eth0
+  SysFS Device Link: /devices/pci0000:00/0000:00:00.0/0000:01:01.0
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "l_e1000"
+  Driver Modules: "l_e1000"
+  Device File: eth0
+  HW Address: 12:34:56:78:9a:bc
+  Permanent HW Address: 12:34:56:78:9a:bc
+  Link detected: yes
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #35 (Ethernet controller)
+
+124: None 01.0: 10701 Ethernet
+  [Created at net.126]
+  Unique ID: L2Ua.ndpeucax6V1
+  Parent ID: JNkJ.mnwwQND4dR0
+  SysFS ID: /class/net/eth1
+  SysFS Device Link: /devices/pci0000:00/0000:00:00.0/0000:01:01.1
+  Hardware Class: network interface
+  Model: "Ethernet network interface"
+  Driver: "l_e1000"
+  Driver Modules: "l_e1000"
+  Device File: eth1
+  HW Address: 12:34:56:78:9a:bd
+  Permanent HW Address: 12:34:56:78:9a:bd
+  Link detected: no
+  Config Status: cfg=new, avail=yes, need=no, active=unknown
+  Attached to: #46 (Ethernet controller)
+
+Надеюсь не снизите баллы за то что не скопировал всё полностью
+
+История входов 
+
+student_ithub10@yukari:~$ last
+student_ pts/0        176.14.213.91    Wed Dec  8 20:04   still logged in
+student_ pts/0        176.14.213.91    Wed Dec  8 20:03 - 20:03  (00:00)
+student_ pts/2        176.14.213.91    Wed Dec  8 19:37 - 20:03  (00:25)
+student_ pts/0        195.91.215.57    Wed Dec  8 19:34 - 19:55  (00:20)
+student_ pts/0        89.175.152.102   Wed Dec  8 17:14 - 17:36  (00:22)
+student_ pts/4        89.175.152.102   Wed Dec  8 14:42 - 17:53  (03:11)
+student_ pts/2        89.175.152.102   Wed Dec  8 14:25 - 17:14  (02:48)
+student_ pts/2        89.175.152.102   Wed Dec  8 14:25 - 14:25  (00:00)
+student_ pts/2        89.175.152.102   Wed Dec  8 14:18 - 14:25  (00:06)
+sukhov_a pts/3        89.175.152.102   Wed Dec  8 10:37 - 17:24  (06:46)
+student_ pts/3        89.175.152.102   Wed Dec  8 10:24 - 10:37  (00:12)
+sukhov_a pts/3        89.175.152.102   Wed Dec  8 10:20 - 10:21  (00:00)
+student_ pts/2        46.39.54.53      Wed Dec  8 07:50 - 12:57  (05:06)
+sukhov_a pts/2        37.75.7.77       Wed Dec  8 01:18 - 04:31  (03:12)
+student_ pts/6        109.252.141.13   Wed Dec  8 00:46 - 15:38  (14:51)
+student_ pts/5        77.222.24.32     Tue Dec  7 23:28 - 01:50  (02:22)
+student_ pts/3        46.33.222.159    Tue Dec  7 23:26 - 01:47  (02:21)
+student_ pts/0        109.252.141.13   Tue Dec  7 23:10 - 15:30  (16:20)
+student_ pts/2        77.222.24.32     Tue Dec  7 22:37 - 00:49  (02:11)
+student_ pts/2        77.222.24.32     Tue Dec  7 22:28 - 22:35  (00:06)
+student_ pts/4        37.110.34.192    Tue Dec  7 21:49 - 00:55  (03:06)
+student_ pts/4        195.91.215.57    Tue Dec  7 20:13 - 21:36  (01:23)
+student_ pts/3        195.91.215.57    Tue Dec  7 19:58 - 22:21  (02:22)
+student_ pts/2        37.110.34.192    Tue Dec  7 18:54 - 21:58  (03:03)
+student_ pts/0        176.14.213.91    Tue Dec  7 18:22 - 22:55  (04:33)
+ger      pts/0        118.45.181.162   Tue Dec  7 13:02 - 13:55  (00:53)
+spa      pts/3        188.32.162.54    Tue Dec  7 02:15 - 02:16  (00:00)
+student_ pts/4        176.14.213.91    Mon Dec  6 23:29 - 23:37  (00:07)
+student_ pts/4        176.14.213.91    Mon Dec  6 23:23 - 23:29  (00:05)
+student_ pts/3        195.91.215.57    Mon Dec  6 22:20 - 00:44  (02:23)
+student_ pts/3        195.91.215.57    Mon Dec  6 21:49 - 22:19  (00:29)
+student_ pts/4        176.14.213.91    Mon Dec  6 20:40 - 23:23  (02:43)
+student_ pts/4        176.14.213.91    Mon Dec  6 20:38 - 20:39  (00:00)
+student_ pts/3        195.91.215.57    Mon Dec  6 18:58 - 21:48  (02:49)
+molchan_ pts/3        109.252.62.28    Mon Dec  6 16:32 - 16:33  (00:00)
+yuryev_l pts/0        178.176.214.10   Mon Dec  6 04:06 - 03:01  (22:54)
+molchan_ pts/0        172.16.4.164     Mon Dec  6 02:03 - 02:20  (00:16)
+molchan_ pts/0        172.16.4.164     Mon Dec  6 01:44 - 01:47  (00:02)
+spa      pts/0        188.32.162.54    Mon Dec  6 01:24 - 01:41  (00:17)
+molchan_ pts/0        172.16.4.164     Mon Dec  6 00:22 - 00:22  (00:00)
+student_ pts/0        176.14.213.91    Sun Dec  5 20:52 - 22:26  (01:34)
+student_ pts/0        176.14.213.91    Sun Dec  5 19:04 - 20:48  (01:44)
+student_ pts/0        176.14.213.91    Sun Dec  5 18:52 - 18:53  (00:00)
+yuryev_l pts/3        178.176.214.10   Sun Dec  5 18:14 - 23:46  (05:31)
+student_ pts/2        176.14.213.91    Sun Dec  5 18:14 - 18:35  (00:21)
+js       pts/2        185.220.101.181  Sun Dec  5 17:34 - 17:47  (00:13)
+yuryev_l pts/5        178.176.214.10   Sun Dec  5 14:58 - 03:58  (13:00)
+student_ pts/4        77.222.24.32     Sun Dec  5 13:22 - 17:43  (04:20)
+student_ pts/3        37.110.34.192    Sun Dec  5 13:11 - 16:53  (03:42)
+molchan_ pts/4        192.168.53.246   Sun Dec  5 13:05 - 13:05  (00:00)
+molchan_ pts/4        192.168.53.246   Sun Dec  5 13:05 - 13:05  (00:00)
+molchan_ pts/4        192.168.53.246   Sun Dec  5 13:04 - 13:05  (00:01)
+student_ pts/2        46.33.222.159    Sun Dec  5 12:51 - 15:27  (02:35)
+entityfx pts/1        185.238.208.20   Sun Dec  5 11:12   still logged in
+molchan_ pts/1        192.168.53.246   Sun Dec  5 10:49 - 10:55  (00:05)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 10:49 - 10:49  (00:00)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 07:12 - 10:49  (03:37)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 07:12 - 07:12  (00:00)
+molchan_ pts/0        172.16.4.164     Sun Dec  5 04:50 - 18:37  (13:47)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 02:09 - 05:41  (03:32)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 02:09 - 02:09  (00:00)
+molchan_ pts/0        172.16.4.164     Sun Dec  5 02:01 - 02:20  (00:19)
+reboot   system boot  5.4.0-3.13-e8c   Sun Dec  5 01:59 - 20:43 (3+18:43)
+molchan_ pts/1        172.16.4.164     Sun Dec  5 01:53 - down   (00:00)
+student_ pts/1        109.252.141.13   Sat Dec  4 16:27 - 21:06  (04:38)
+student_ pts/2        46.33.222.159    Sat Dec  4 12:57 - 20:01  (07:04)
+
+wtmp begins Sat Dec  4 05:13:31 2021
+
+student_ithub10@yukari:~$ lastlog
+
+
+Пользователь     Порт     С                Последний раз
+root             pts/2    127.0.0.1        Чт ноя 19 22:57:01 +0300 2020
+bin                                        **Никогда не входил в систему**
+daemon                                     **Никогда не входил в систему**
+adm                                        **Никогда не входил в систему**
+lp                                         **Никогда не входил в систему**
+sync                                       **Никогда не входил в систему**
+shutdown                                   **Никогда не входил в систему**
+halt                                       **Никогда не входил в систему**
+mail                                       **Никогда не входил в систему**
+news                                       **Никогда не входил в систему**
+uucp                                       **Никогда не входил в систему**
+operator                                   **Никогда не входил в систему**
+games                                      **Никогда не входил в систему**
+gopher                                     **Никогда не входил в систему**
+ftp                                        **Никогда не входил в систему**
+nobody                                     **Никогда не входил в систему**
+rpc                                        **Никогда не входил в систему**
+rpcuser                                    **Никогда не входил в систему**
+nfsnobody                                  **Никогда не входил в систему**
+sshd                                       **Никогда не входил в систему**
+smmsp                                      **Никогда не входил в систему**
+tester                                     **Никогда не входил в систему**
+bouncer                                    **Никогда не входил в систему**
+man                                        **Никогда не входил в систему**
+_chrony                                    **Никогда не входил в систему**
+_apt                                       **Никогда не входил в систему**
+nslcd                                      **Никогда не входил в систему**
+mysql                                      **Никогда не входил в систему**
+bind                                       **Никогда не входил в систему**
+messagebus                                 **Никогда не входил в систему**
+quagga                                     **Никогда не входил в систему**
+postgres                                   **Никогда не входил в систему**
+ups                                        **Никогда не входил в систему**
+avahi                                      **Никогда не входил в систему**
+pulse                                      **Никогда не входил в систему**
+anikin_a                                   **Никогда не входил в систему**
+karpov_d                                   **Никогда не входил в систему**
+lavresh                                    **Никогда не входил в систему**
+strizhak_a                                 **Никогда не входил в систему**
+trushkin_k                                 **Никогда не входил в систему**
+loga                                       **Никогда не входил в систему**
+minasyan_a                                 **Никогда не входил в систему**
+molchan_i        pts/3    109.252.62.28    Пн дек  6 16:32:47 +0300 2021
+mishadrin                                  **Никогда не входил в систему**
+aam_elbrus                                 **Никогда не входил в систему**
+jakutenshi                                 **Никогда не входил в систему**
+tk1tez                                     **Никогда не входил в систему**
+boinc                                      **Никогда не входил в систему**
+astahov_a                                  **Никогда не входил в систему**
+vv_razumov                                 **Никогда не входил в систему**
+oni                                        **Никогда не входил в систему**
+intc30                                     **Никогда не входил в систему**
+potapov                                    **Никогда не входил в систему**
+ptikhonov                                  **Никогда не входил в систему**
+fishswims                                  **Никогда не входил в систему**
+dmitry                                     **Никогда не входил в систему**
+pisarenko        pts/5    81.177.253.178   Вт дек  1 16:53:33 +0300 2020
+avr                                        **Никогда не входил в систему**
+sergeev                                    **Никогда не входил в систему**
+belousov                                   **Никогда не входил в систему**
+miko                                       **Никогда не входил в систему**
+lumag                                      **Никогда не входил в систему**
+hoarfrost                                  **Никогда не входил в систему**
+akari                                      **Никогда не входил в систему**
+lenarko                                    **Никогда не входил в систему**
+entityfx         pts/1    185.238.208.20   Вс дек  5 11:12:51 +0300 2021
+takomi                                     **Никогда не входил в систему**
+svsdval                                    **Никогда не входил в систему**
+xottab_duty                                **Никогда не входил в систему**
+sattarov         pts/13   178.204.65.201   Сб ноя 13 01:09:39 +0300 2021
+b41                                        **Никогда не входил в систему**
+anikeev                                    **Никогда не входил в систему**
+andrew_r         pts/0    176.116.252.109  Вт янв 26 01:11:22 +0300 2021
+dvdkitay                                   **Никогда не входил в систему**
+coocos           pts/4    185.153.132.36   Вс сен 19 09:30:28 +0300 2021
+octagram         pts/9    91.122.45.17     Чт дек  3 14:38:35 +0300 2020
+stgatilov        pts/8    5.44.169.196     Пт мая  7 08:46:29 +0300 2021
+alexandrparkhomenko pts/8    176.213.12.4     Чт мар  4 21:28:52 +0300 2021
+gel0             pts/13   90.154.71.15     Чт авг 12 14:51:41 +0300 2021
+yuryev_l         pts/0    178.176.214.10   Пн дек  6 04:06:37 +0300 2021
+serge            pts/1    188.104.41.205   Ср дек  1 12:46:25 +0300 2021
+vostok           pts/5    188.163.73.225   Пт мая 14 21:25:29 +0300 2021
+nightscreamer    pts/0    176.50.87.169    Чт мар 11 15:16:41 +0300 2021
+gshep            pts/10   79.132.115.43    Пт апр 16 11:43:50 +0300 2021
+ruser                                      **Никогда не входил в систему**
+camotank12345                              **Никогда не входил в систему**
+civiloid                                   **Никогда не входил в систему**
+tomskside        pts/8    90.188.115.85    Пт мар  5 09:45:17 +0300 2021
+mike             pts/4    193.43.10.250    Ср ноя  3 18:34:38 +0300 2021
+mpd                                        **Никогда не входил в систему**
+ossec                                      **Никогда не входил в систему**
+ossecm                                     **Никогда не входил в систему**
+ossecr                                     **Никогда не входил в систему**
+ignite                                     **Никогда не входил в систему**
+barman                                     **Никогда не входил в систему**
+exim                                       **Никогда не входил в систему**
+nagios                                     **Никогда не входил в систему**
+gammu                                      **Никогда не входил в систему**
+dovecot                                    **Никогда не входил в систему**
+dovenull                                   **Никогда не входил в систему**
+activemq                                   **Никогда не входил в систему**
+dnsmasq                                    **Никогда не входил в систему**
+munge                                      **Никогда не входил в систему**
+smmta                                      **Никогда не входил в систему**
+redis                                      **Никогда не входил в систему**
+otrs                                       **Никогда не входил в систему**
+x2gouser                                   **Никогда не входил в систему**
+postfix                                    **Никогда не входил в систему**
+rabbitmq                                   **Никогда не входил в систему**
+logcheck                                   **Никогда не входил в систему**
+hacluster                                  **Никогда не входил в систему**
+nick             pts/9    137.226.69.111   Ср сен  1 21:43:38 +0300 2021
+js               pts/2    185.220.101.181  Вс дек  5 17:34:01 +0300 2021
+ger              pts/0    118.45.181.162   Вт дек  7 13:02:45 +0300 2021
+garorobe         pts/2    188.134.67.207   Вт дек 29 13:23:24 +0300 2020
+rndtrash         pts/24   185.15.62.98     Чт авг 19 18:39:21 +0300 2021
+serg-sg          pts/4    94.231.132.193   Пн окт 11 18:21:11 +0300 2021
+snort                                      **Никогда не входил в систему**
+apache                                     **Никогда не входил в систему**
+amanda                                     **Никогда не входил в систему**
+bacula                                     **Никогда не входил в систему**
+zabbix                                     **Никогда не входил в систему**
+oliger                                     **Никогда не входил в систему**
+vutshi           pts/13   84.115.232.42    Пт ноя 19 01:24:20 +0300 2021
+tomilov          pts/8    188.234.213.45   Пт сен 10 08:39:08 +0300 2021
+das              pts/7    95.24.143.72     Вт сен  7 21:21:09 +0300 2021
+nemequ           pts/0    73.60.222.59     Вт апр 27 23:10:33 +0300 2021
+true-grue        pts/8    176.14.209.83    Чт мар  4 19:50:01 +0300 2021
+linuxmaster      pts/38   92.126.216.224   Вс мар 28 21:16:35 +0300 2021
+friendlyted      pts/4    178.155.6.76     Ср сен 15 22:55:33 +0300 2021
+mbarashkov       pts/1    195.20.119.175   Чт сен 23 13:49:09 +0300 2021
+dmitryc          pts/10   78.84.141.151    Пт апр  9 17:15:03 +0300 2021
+asukharev        pts/13   188.32.103.27    Ср сен  8 00:22:53 +0300 2021
+ikulkov          pts/15   37.146.40.237    Пн апр 26 10:06:22 +0300 2021
+alexnur89        pts/9    77.239.200.52    Чт апр 22 21:47:28 +0300 2021
+simenido         pts/9    85.89.126.32     Вт апр 27 13:07:16 +0300 2021
+kosmos           pts/13   62.217.184.104   Ср июл 14 23:01:49 +0300 2021
+libvirt-qemu                               **Никогда не входил в систему**
+frahoisl         pts/13   5.3.72.0         Чт ноя 18 22:22:31 +0300 2021
+helce            pts/2    109.252.123.28   Чт мая 27 11:27:25 +0300 2021
+david            pts/7    85.140.2.177     Вс окт 17 07:16:11 +0300 2021
+haxver           pts/10   188.168.56.109   Ср июл 14 21:15:08 +0300 2021
+zxan2            pts/2    178.214.253.223  Пт дек  3 16:38:38 +0300 2021
+sai              pts/2    176.67.240.10    Ср дек  1 23:08:42 +0300 2021
+whitefox         pts/22   87.251.183.162   Пт авг 20 11:49:03 +0300 2021
+fantastic        pts/9    185.112.144.184  Чт ноя  4 18:37:40 +0300 2021
+qoy              pts/22   178.205.84.49    Пт авг 20 18:25:06 +0300 2021
+brendandg        pts/4    71.190.138.62    Чт окт 21 02:07:17 +0300 2021
+djart            pts/4    176.49.49.121    Ср сен 15 13:28:42 +0300 2021
+asm              pts/4    37.21.249.254    Пн окт 18 19:19:17 +0300 2021
+celcion          pts/8    109.252.47.12    Чт сен  9 09:06:58 +0300 2021
+arrowd           pts/9    2.94.236.147     Чт сен 23 10:18:47 +0300 2021
+ierisov          pts/9    95.79.35.245     Ср окт 27 14:34:23 +0300 2021
+floydselenium    pts/4    46.161.188.208   Чт сен 16 22:36:38 +0300 2021
+imp5             pts/7    46.242.8.30      Пт сен 24 16:00:49 +0300 2021
+frankg           pts/18   89.247.39.112    Сб ноя 20 18:13:02 +0300 2021
+cmake_testing                              **Никогда не входил в систему**
+sergeigunin                                **Никогда не входил в систему**
+samgups          pts/4    46.0.207.28      Пт окт 22 13:42:41 +0300 2021
+dymok            pts/8    91.227.190.86    Ср окт 20 02:57:22 +0300 2021
+dian             pts/11   194.36.25.10     Ср окт 20 19:06:11 +0300 2021
+alex_kor         pts/4    203.86.195.236   Пт окт 29 12:52:39 +0300 2021
+usr1cv8                                    **Никогда не входил в систему**
+rea              pts/16   109.252.81.59    Чт окт 28 03:16:36 +0300 2021
+borisov_i        pts/13   31.173.81.222    Пн ноя 15 16:05:51 +0300 2021
+student_ithub3   pts/26   94.45.176.27     Ср ноя 17 13:12:49 +0300 2021
+student_ithub2   pts/3    89.175.152.102   Ср дек  8 10:24:42 +0300 2021
+student_ithub1   pts/0    89.175.152.102   Ср дек  8 17:14:32 +0300 2021
+sukhov_aa        pts/3    89.175.152.102   Ср дек  8 10:37:30 +0300 2021
+student_ithub10  pts/0    176.14.213.91    Ср дек  8 20:04:38 +0300 2021
+student_ithub9   pts/3    89.175.152.102   Ср дек  1 14:53:48 +0300 2021
+student_ithub8   pts/2    89.175.152.102   Ср дек  8 14:25:33 +0300 2021
+student_ithub7                             **Никогда не входил в систему**
+student_ithub6   pts/4    89.175.152.102   Ср дек  8 14:42:11 +0300 2021
+student_ithub5   pts/4    93.95.164.85     Чт дек  2 01:44:58 +0300 2021
+student_ithub4                             **Никогда не входил в систему**
+spa              pts/3    188.32.162.54    Вт дек  7 02:15:21 +0300 2021
+
+Команды которые сейчас выполняют активные пользователи
+student_ithub10@yukari:~$ w
+ 20:45:57 up 3 days, 18:50,  2 users,  load average: 0,03, 0,06, 0,01
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+student_ pts/0     20:04    1.00s  0.79s  0.02s w
+entityfx pts/1     Вс11    2days  1:42m  1:42m /opt/mcst/rtc-4.0/bin/rtc_opt_rel_p1_x64_ob --path_prefix /opt/mcst/os_elbrus.4.0-rc4.x86_64/ -b /export/home/entityfx -b /etc/passwd -b /etc/group -x86_arg0 top -x86_sigmask 0 -std
+
+student_ithub10@yukari:~$ who
+
+Общее кол-во пользователей
+
+student_ithub10@yukari:~$ getent passwd |wc -l
+177
+
+
+
+student_ithub10@yukari:~$ last -i
+student_ pts/0        176.14.213.91    Wed Dec  8 20:04   still logged in
+student_ pts/0        176.14.213.91    Wed Dec  8 20:03 - 20:03  (00:00)
+student_ pts/2        176.14.213.91    Wed Dec  8 19:37 - 20:03  (00:25)
+student_ pts/0        195.91.215.57    Wed Dec  8 19:34 - 19:55  (00:20)
+student_ pts/0        89.175.152.102   Wed Dec  8 17:14 - 17:36  (00:22)
+student_ pts/4        89.175.152.102   Wed Dec  8 14:42 - 17:53  (03:11)
+student_ pts/2        89.175.152.102   Wed Dec  8 14:25 - 17:14  (02:48)
+student_ pts/2        89.175.152.102   Wed Dec  8 14:25 - 14:25  (00:00)
+student_ pts/2        89.175.152.102   Wed Dec  8 14:18 - 14:25  (00:06)
+sukhov_a pts/3        89.175.152.102   Wed Dec  8 10:37 - 17:24  (06:46)
+student_ pts/3        89.175.152.102   Wed Dec  8 10:24 - 10:37  (00:12)
+sukhov_a pts/3        89.175.152.102   Wed Dec  8 10:20 - 10:21  (00:00)
+student_ pts/2        46.39.54.53      Wed Dec  8 07:50 - 12:57  (05:06)
+sukhov_a pts/2        37.75.7.77       Wed Dec  8 01:18 - 04:31  (03:12)
+student_ pts/6        109.252.141.13   Wed Dec  8 00:46 - 15:38  (14:51)
+student_ pts/5        77.222.24.32     Tue Dec  7 23:28 - 01:50  (02:22)
+student_ pts/3        46.33.222.159    Tue Dec  7 23:26 - 01:47  (02:21)
+student_ pts/0        109.252.141.13   Tue Dec  7 23:10 - 15:30  (16:20)
+student_ pts/2        77.222.24.32     Tue Dec  7 22:37 - 00:49  (02:11)
+student_ pts/2        77.222.24.32     Tue Dec  7 22:28 - 22:35  (00:06)
+student_ pts/4        37.110.34.192    Tue Dec  7 21:49 - 00:55  (03:06)
+student_ pts/4        195.91.215.57    Tue Dec  7 20:13 - 21:36  (01:23)
+student_ pts/3        195.91.215.57    Tue Dec  7 19:58 - 22:21  (02:22)
+student_ pts/2        37.110.34.192    Tue Dec  7 18:54 - 21:58  (03:03)
+student_ pts/0        176.14.213.91    Tue Dec  7 18:22 - 22:55  (04:33)
+ger      pts/0        118.45.181.162   Tue Dec  7 13:02 - 13:55  (00:53)
+spa      pts/3        188.32.162.54    Tue Dec  7 02:15 - 02:16  (00:00)
+student_ pts/4        176.14.213.91    Mon Dec  6 23:29 - 23:37  (00:07)
+student_ pts/4        176.14.213.91    Mon Dec  6 23:23 - 23:29  (00:05)
+student_ pts/3        195.91.215.57    Mon Dec  6 22:20 - 00:44  (02:23)
+student_ pts/3        195.91.215.57    Mon Dec  6 21:49 - 22:19  (00:29)
+student_ pts/4        176.14.213.91    Mon Dec  6 20:40 - 23:23  (02:43)
+student_ pts/4        176.14.213.91    Mon Dec  6 20:38 - 20:39  (00:00)
+student_ pts/3        195.91.215.57    Mon Dec  6 18:58 - 21:48  (02:49)
+molchan_ pts/3        109.252.62.28    Mon Dec  6 16:32 - 16:33  (00:00)
+yuryev_l pts/0        178.176.214.10   Mon Dec  6 04:06 - 03:01  (22:54)
+molchan_ pts/0        172.16.4.164     Mon Dec  6 02:03 - 02:20  (00:16)
+molchan_ pts/0        172.16.4.164     Mon Dec  6 01:44 - 01:47  (00:02)
+spa      pts/0        188.32.162.54    Mon Dec  6 01:24 - 01:41  (00:17)
+molchan_ pts/0        172.16.4.164     Mon Dec  6 00:22 - 00:22  (00:00)
+student_ pts/0        176.14.213.91    Sun Dec  5 20:52 - 22:26  (01:34)
+student_ pts/0        176.14.213.91    Sun Dec  5 19:04 - 20:48  (01:44)
+student_ pts/0        176.14.213.91    Sun Dec  5 18:52 - 18:53  (00:00)
+yuryev_l pts/3        178.176.214.10   Sun Dec  5 18:14 - 23:46  (05:31)
+student_ pts/2        176.14.213.91    Sun Dec  5 18:14 - 18:35  (00:21)
+js       pts/2        185.220.101.181  Sun Dec  5 17:34 - 17:47  (00:13)
+yuryev_l pts/5        178.176.214.10   Sun Dec  5 14:58 - 03:58  (13:00)
+student_ pts/4        77.222.24.32     Sun Dec  5 13:22 - 17:43  (04:20)
+student_ pts/3        37.110.34.192    Sun Dec  5 13:11 - 16:53  (03:42)
+molchan_ pts/4        192.168.53.246   Sun Dec  5 13:05 - 13:05  (00:00)
+molchan_ pts/4        192.168.53.246   Sun Dec  5 13:05 - 13:05  (00:00)
+molchan_ pts/4        192.168.53.246   Sun Dec  5 13:04 - 13:05  (00:01)
+student_ pts/2        46.33.222.159    Sun Dec  5 12:51 - 15:27  (02:35)
+entityfx pts/1        185.238.208.20   Sun Dec  5 11:12   still logged in
+molchan_ pts/1        192.168.53.246   Sun Dec  5 10:49 - 10:55  (00:05)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 10:49 - 10:49  (00:00)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 07:12 - 10:49  (03:37)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 07:12 - 07:12  (00:00)
+molchan_ pts/0        172.16.4.164     Sun Dec  5 04:50 - 18:37  (13:47)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 02:09 - 05:41  (03:32)
+molchan_ pts/1        192.168.53.246   Sun Dec  5 02:09 - 02:09  (00:00)
+molchan_ pts/0        172.16.4.164     Sun Dec  5 02:01 - 02:20  (00:19)
+reboot   system boot  0.0.0.0          Sun Dec  5 01:59 - 20:54 (3+18:55)
+molchan_ pts/1        172.16.4.164     Sun Dec  5 01:53 - down   (00:00)
+student_ pts/1        109.252.141.13   Sat Dec  4 16:27 - 21:06  (04:38)
+student_ pts/2        46.33.222.159    Sat Dec  4 12:57 - 20:01  (07:04)
+
+
+
+
+
+
+
+
+
+
+
+
+
